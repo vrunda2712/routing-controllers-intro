@@ -12,7 +12,9 @@ class PagesController < ApplicationController
   end
 
   def contest
-    @header = "Routing Controller Intro - Contest Page"
+    flash[:notice] = "Sorry, the contest has ended"
+    redirect_to '/welcome'
+    # @header = "Routing Controller Intro - Contest Page"
   end
 
   def kitten
@@ -27,5 +29,6 @@ class PagesController < ApplicationController
     requested_size = params[:size]
     @kitten_url = "http://lorempixel.com/#{requested_size}/#{requested_size}/cats"
   end
+
 
 end
